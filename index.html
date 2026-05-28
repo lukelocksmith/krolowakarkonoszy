@@ -1,0 +1,1784 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Królowa Karkonoszy — Szklarska Poręba i Karpacz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --green: #2A3D31;
+    --green-deep: #1F2E25;
+    --green-soft: #3a5244;
+    --beige: #AD9575;
+    --beige-soft: #c9b89c;
+    --cream: #F5F1EA;
+    --cream-deep: #ECE6DA;
+    --paper: #FAF7F1;
+    --white: #FEFEFE;
+    --ink: #2A3D31;
+    --ink-mute: #5a6b5f;
+    --line: rgba(42,61,49,0.14);
+    --line-soft: rgba(42,61,49,0.08);
+    --shadow-sm: 0 1px 2px rgba(42,61,49,0.06);
+    --shadow-md: 0 8px 30px rgba(42,61,49,0.08);
+    --shadow-lg: 0 24px 60px rgba(42,61,49,0.14);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --max: 1440px;
+    --gutter: 32px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Lato", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,h2,h3,h4,h5,h6 { font-family: "Lato", sans-serif; font-weight: 700; letter-spacing: -0.01em; line-height: 1.15; margin: 0; color: var(--green); }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* placeholder utility */
+  .ph {
+    background: linear-gradient(135deg, #d8d2c5 0%, #c9c2b1 100%);
+    color: rgba(42,61,49,0.55);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 8px;
+    font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    position: relative; overflow: hidden;
+  }
+  .ph::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(45deg, transparent 0 14px, rgba(42,61,49,0.04) 14px 15px);
+    pointer-events: none;
+  }
+  .ph svg { opacity: 0.35; }
+
+  /* monospace eyebrow */
+  .eyebrow {
+    font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--beige);
+    font-weight: 400;
+  }
+
+  /* container */
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .wrap-narrow { max-width: 1100px; margin: 0 auto; padding: 0 var(--gutter); }
+
+  /* button */
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 16px 28px;
+    font-size: 15px; font-weight: 700; letter-spacing: 0.02em;
+    border-radius: 999px;
+    transition: all .25s ease;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--green); color: var(--cream); }
+  .btn-primary:hover { background: var(--green-deep); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--green); border: 1px solid var(--green); }
+  .btn-ghost:hover { background: var(--green); color: var(--cream); }
+  .btn-on-dark { background: var(--cream); color: var(--green); }
+  .btn-on-dark:hover { background: var(--white); }
+  .btn-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 700; font-size: 15px;
+    color: var(--green);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 6px;
+    transition: gap .2s ease, border-color .2s ease;
+  }
+  .btn-link:hover { gap: 16px; border-color: var(--green); }
+
+  /* nav */
+  .nav {
+    position: fixed; inset: 0 0 auto 0;
+    z-index: 50;
+    transition: background .35s ease, backdrop-filter .35s ease, border-color .35s ease, padding .35s ease, transform .4s ease, opacity .4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  .nav.hidden {
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .nav-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    padding: 30px var(--gutter);
+    min-height: 123px;
+    transition: padding .35s ease, min-height .35s ease;
+  }
+  .nav.scrolled .nav-inner { padding: 18px var(--gutter); min-height: 84px; }
+  .nav-left { justify-self: start; }
+  .nav-right { justify-self: end; }
+  .nav-links.nav-right { gap: 8px; }
+  .nav-logo { justify-self: center; grid-column: 2; display: flex; align-items: center; }
+  .nav-logo .full { display: block; height: 76px; width: auto; transition: height .35s ease; }
+  .nav-logo .mark { display: none; height: 44px; width: auto; }
+  .nav.scrolled .nav-logo .full { display: none; }
+  .nav.scrolled .nav-logo .mark { display: block; }
+  .nav.scrolled {
+    background: rgba(250, 247, 241, 0.96);
+    backdrop-filter: saturate(140%) blur(14px);
+    border-bottom-color: var(--line-soft);
+  }
+  .nav.scrolled .nav-link { color: var(--green); }
+  .nav.scrolled .nav-cta-outline { border-color: var(--beige); color: var(--cream); }
+  .nav.scrolled .nav-cta-outline::before { background: var(--beige); }
+  .nav.scrolled .nav-lang-btn { border-color: var(--green); background: transparent; color: var(--cream); }
+  .nav.scrolled .nav-lang-btn::before { background: var(--green); }
+  .nav-links { display: flex; gap: 40px; align-items: center; }
+  .nav-link {
+    font-size: 14px; font-weight: 700; letter-spacing: 0.14em;
+    color: var(--cream);
+    transition: opacity .2s ease;
+  }
+  .nav-link:hover { opacity: 0.7; }
+  .nav-cta-outline {
+    position: relative;
+    height: 45px;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0 26px;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--green);
+    background: transparent;
+    border: 1px solid var(--beige);
+    border-radius: 999px;
+    line-height: 1;
+    isolation: isolate;
+  }
+  .nav-cta-outline::before {
+    content: "";
+    position: absolute; inset: 3px;
+    background: var(--beige);
+    border-radius: 999px;
+    z-index: -1;
+    transition: inset .2s ease;
+  }
+  .nav-cta-outline:hover::before { inset: 4px; }
+  .nav-lang { position: relative; }
+  .nav-lang-btn {
+    position: relative;
+    width: 45px; height: 45px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 999px;
+    background: transparent;
+    border: 1px solid var(--cream);
+    color: var(--green);
+    font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+    line-height: 1;
+    isolation: isolate;
+  }
+  .nav-lang-btn::before {
+    content: "";
+    position: absolute; inset: 3px;
+    background: var(--cream);
+    border-radius: 999px;
+    z-index: -1;
+    transition: inset .2s ease;
+  }
+  .nav-lang-btn:hover::before { inset: 5px; }
+  .nav-lang-menu {
+    position: absolute; top: calc(100% + 8px); right: 0;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: 6px;
+    min-width: 90px;
+    display: flex; flex-direction: column;
+    z-index: 60;
+  }
+  .nav-lang-opt {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+    color: var(--ink-mute);
+    border-radius: 6px;
+    transition: all .15s ease;
+  }
+  .nav-lang-opt:hover { background: var(--cream); color: var(--green); }
+  .nav-lang-opt.active { background: var(--green); color: var(--cream); }
+
+  /* landing-only nav: logo left, languages right (inline) */
+  .nav-inner-landing {
+    max-width: var(--max); margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 30px var(--gutter);
+    min-height: 123px;
+    transition: padding .35s ease, min-height .35s ease;
+  }
+  .nav.scrolled .nav-inner-landing { padding: 18px var(--gutter); min-height: 84px; }
+  .nav-inner-landing .nav-logo { justify-self: initial; grid-column: auto; }
+  .nav-right-group { display: flex; align-items: center; gap: 18px; }
+  @media (max-width: 720px) {
+    .nav-right-group { gap: 10px; }
+    .nav-right-group .nav-cta-outline { padding: 0 16px; font-size: 12px; height: 40px; }
+  }
+  @media (max-width: 520px) {
+    .nav-right-group .nav-cta-outline { display: none; }
+  }
+  /* Language switcher — same height as CTA (44px), circular active, beige akcent */
+  .nav-langs-inline {
+    display: flex; align-items: center; gap: 2px;
+    background: rgba(173, 149, 117, 0.18);
+    border: 1px solid rgba(173, 149, 117, 0.32);
+    border-radius: 999px;
+    padding: 4px;
+    height: 44px;
+    backdrop-filter: blur(8px);
+    align-self: center;
+  }
+  .nav.scrolled .nav-langs-inline {
+    background: rgba(42,61,49,0.08);
+    border-color: rgba(42,61,49,0.16);
+  }
+  .nav-lang-inline {
+    height: 36px; width: 36px; min-width: 36px;
+    padding: 0;
+    border-radius: 999px;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--cream);
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background .18s ease, color .18s ease;
+  }
+  .nav-lang-inline:hover { background: rgba(173, 149, 117, 0.18); }
+  .nav-lang-inline.active { background: var(--beige); color: var(--green); }
+  .nav.scrolled .nav-lang-inline { color: var(--green); }
+  .nav.scrolled .nav-lang-inline:hover { background: rgba(42,61,49,0.08); }
+  .nav.scrolled .nav-lang-inline.active { background: var(--green); color: var(--cream); }
+
+  /* Solid pill CTA, bez stroke i ::before tricks */
+  .nav-inner-landing .nav-cta-outline,
+  .footer-hero .nav-cta-outline {
+    border: 0 !important;
+    background: var(--beige);
+    color: var(--green);
+    height: 44px;
+    padding: 0 24px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    border-radius: 999px;
+    transition: background .2s ease, transform .15s ease;
+    isolation: auto;
+  }
+  .nav-inner-landing .nav-cta-outline::before,
+  .footer-hero .nav-cta-outline::before { content: none !important; display: none !important; }
+  .nav-inner-landing .nav-cta-outline:hover,
+  .footer-hero .nav-cta-outline:hover { background: var(--cream); transform: translateY(-1px); }
+  .nav.scrolled .nav-cta-outline {
+    background: var(--green) !important;
+    color: var(--cream) !important;
+    border-color: transparent !important;
+  }
+  .nav.scrolled .nav-cta-outline:hover { background: var(--green-deep) !important; }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    color: var(--cream);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    padding-top: 123px;
+    background: #1A3324;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('assets/hero-bg.svg') center bottom / cover no-repeat, #1A3324;
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(245,241,234,0.03) 0px,
+      rgba(245,241,234,0.03) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  .hero-bg .ph-mark {
+    position: absolute;
+    bottom: 24px; right: 24px;
+    font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(245,241,234,0.45);
+    display: flex; align-items: center; gap: 8px;
+    z-index: 2;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1440px; width: 100%; margin: 0 auto;
+    padding: 0 var(--gutter);
+    flex: 1; display: flex; flex-direction: column; justify-content: center;
+    padding-bottom: 80px; padding-top: 40px;
+  }
+  .hero-content-center {
+    align-items: center; text-align: center;
+  }
+  .hero-content-center .hero-eyebrow { margin-bottom: 36px; }
+  .hero-content-center .hero-eyebrow::before { display: none; }
+  .hero-eyebrow {
+    color: var(--beige-soft);
+    margin-bottom: 32px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: ""; display: block; width: 40px; height: 1px; background: var(--beige-soft);
+  }
+  .hero h1 {
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    max-width: 14ch;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--beige-soft);
+  }
+  .hero-sub {
+    margin-top: 28px;
+    max-width: 50ch;
+    font-size: 19px;
+    line-height: 1.55;
+    color: rgba(245,241,234,0.85);
+    font-weight: 300;
+  }
+
+  /* hero location chooser */
+  .hero-chooser {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 920px;
+  }
+  .hero-chooser-wide {
+    margin-top: 0;
+    max-width: none;
+    width: 100%;
+    gap: 60px;
+  }
+  .hero-card-v2 {
+    position: relative; display: block;
+    text-decoration: none; color: var(--cream); cursor: pointer;
+    aspect-ratio: 1/1;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .hero-card-v2.disabled { cursor: default; }
+  .hero-card-v2-img { position: absolute; inset: 0; overflow: hidden; }
+  .hero-card-v2-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .8s ease;
+    will-change: transform;
+  }
+  .hero-card-v2:hover .hero-card-v2-img img { transform: scale(1.06); }
+  .hero-card-v2-panel {
+    position: absolute;
+    left: 16px; right: 16px; bottom: 16px;
+    min-height: 270px;
+    background: var(--green);
+    padding: 28px 28px 30px;
+    text-align: center;
+    color: var(--cream);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    border-radius: 8px;
+    transition: transform .35s ease, background .35s ease;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .hero-card-v2:hover .hero-card-v2-panel {
+    transform: translateY(-6px);
+    background: #1F2E25;
+  }
+  .hero-card-v2-panel h3 {
+    font-size: 22px; font-weight: 700; letter-spacing: 0.08em; color: var(--beige);
+    margin-bottom: 14px;
+  }
+  .hero-card-v2-panel p {
+    font-size: 16px; line-height: 1.55; color: rgba(245,241,234,0.85);
+    max-width: 50ch; margin: 0 auto 20px; font-weight: 400;
+  }
+  .hero-card-v2-cta {
+    position: relative;
+    display: inline-block;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.16em;
+    color: var(--beige);
+    padding-bottom: 8px;
+    overflow: hidden;
+  }
+  .hero-card-v2-cta::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px; background: var(--beige);
+  }
+  .hero-card-v2:hover .hero-card-v2-cta::after {
+    animation: ctaUnderlineSwipe .9s ease forwards;
+  }
+  @keyframes ctaUnderlineSwipe {
+    0%   { transform: translateX(0); }
+    45%  { transform: translateX(110%); }
+    46%  { transform: translateX(-110%); }
+    100% { transform: translateX(0); }
+  }
+  @media (max-width: 1100px) {
+    .hero-chooser-wide { grid-template-columns: 1fr; gap: 40px; }
+    .hero-card-v2-panel { left: 12px; right: 12px; bottom: 12px; padding: 24px 20px; }
+  }
+
+  /* hero intro (above chooser on landing) */
+  .hero-intro {
+    text-align: center;
+    margin: 0 auto 56px;
+    max-width: 740px;
+    display: flex; flex-direction: column; align-items: center; gap: 18px;
+  }
+  .hero-intro-eyebrow {
+    color: var(--beige-soft);
+  }
+  .hero-intro-title {
+    font-family: "Lato", sans-serif;
+    font-size: clamp(40px, 6vw, 78px);
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .hero-intro-title em {
+    font-style: italic; font-weight: 300; color: var(--beige-soft);
+  }
+  @media (max-width: 720px) {
+    .hero-intro { margin-bottom: 36px; }
+  }
+
+  /* Karpacz info-card (not a link, with contact rows) — hover effect kept like Szklarska */
+  .hero-card-v2-info { cursor: default; }
+  .hero-card-v2-info .hero-card-v2-img::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(31,46,37,0.45) 0%, rgba(31,46,37,0.15) 50%, rgba(31,46,37,0.05) 100%);
+    pointer-events: none;
+  }
+  .hero-card-v2-badge {
+    position: absolute; top: 18px; left: 18px; z-index: 2;
+    background: rgba(245,241,234,0.94);
+    color: var(--green);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase;
+    font-weight: 500;
+    box-shadow: var(--shadow-sm);
+  }
+  .hero-card-v2-contact {
+    display: flex; flex-direction: row; flex-wrap: wrap;
+    gap: 8px 28px;
+    margin-top: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-card-v2-contact-row {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 14px; font-weight: 600; letter-spacing: 0.02em;
+    color: var(--beige-soft);
+    padding: 4px 0;
+    transition: color .2s ease;
+  }
+  .hero-card-v2-contact-row svg { stroke: var(--beige); }
+  .hero-card-v2-contact-row:hover { color: var(--cream); }
+  .hero-card-v2-contact-row:hover svg { stroke: var(--cream); }
+  .hero-card-stack {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    overflow: hidden;
+    text-align: left;
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .hero-card-stack .hero-card-img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+  }
+  .hero-card-stack .hero-card-img .ph {
+    width: 100%; height: 100%;
+    transition: transform .8s ease;
+  }
+  .hero-card-stack:hover .hero-card-img .ph { transform: scale(1.04); }
+  .hero-card-stack .hero-card-body {
+    padding: 24px 4px 8px;
+    color: var(--cream);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .hero-card-row {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    margin-bottom: 4px;
+  }
+  .hero-card-row .hero-card-status { margin-bottom: 0; }
+  .hero-card-row .arrow {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(245,241,234,0.3);
+    display: flex; align-items: center; justify-content: center;
+    transition: all .25s ease;
+    flex-shrink: 0;
+  }
+  .hero-card-stack:hover .hero-card-row .arrow {
+    background: var(--cream); color: var(--green); border-color: var(--cream);
+    transform: translateX(4px);
+  }
+  .hero-card-stack h3 { font-size: clamp(36px, 4vw, 56px); font-weight: 300; color: var(--cream); letter-spacing: -0.02em; line-height: 1.05; }
+  .hero-card-stack .hero-card-meta { font-size: 15px; color: rgba(245,241,234,0.72); max-width: 48ch; }
+  .hero-card-stack.disabled .hero-card-img .ph { filter: grayscale(0.4) brightness(0.85); }
+  .hero-card-stack.disabled:hover .hero-card-img .ph { transform: none; }
+  .hero-card-stack.disabled:hover .hero-card-row .arrow {
+    background: transparent; color: var(--cream); border-color: rgba(245,241,234,0.3); transform: none;
+  }
+  .hero-card-stack:hover { transform: translateY(-4px); }
+  .hero-card-stack.disabled:hover { transform: none; }
+  .hero-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    padding: 28px 28px 24px;
+    background: rgba(250, 247, 241, 0.06);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(250, 247, 241, 0.18);
+    text-align: left;
+    color: var(--cream);
+    cursor: pointer;
+    transition: all .3s ease;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    min-height: 200px;
+  }
+  .hero-card:hover {
+    background: rgba(250, 247, 241, 0.12);
+    border-color: rgba(250, 247, 241, 0.4);
+    transform: translateY(-2px);
+  }
+  .hero-card-status {
+    font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--beige-soft);
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 18px;
+  }
+  .hero-card-status .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #8fc4a3;
+    box-shadow: 0 0 0 4px rgba(143,196,163,0.18);
+  }
+  .hero-card.disabled .dot { background: var(--beige-soft); box-shadow: 0 0 0 4px rgba(201,184,156,0.15); }
+  .hero-card h3 {
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--cream);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .hero-card-meta {
+    font-size: 14px;
+    color: rgba(245,241,234,0.7);
+    font-weight: 300;
+  }
+  .hero-card-foot {
+    margin-top: auto;
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 14px; font-weight: 700; letter-spacing: 0.02em;
+  }
+  .hero-card-foot .arrow {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 1px solid rgba(250, 247, 241, 0.3);
+    display: flex; align-items: center; justify-content: center;
+    transition: all .25s ease;
+  }
+  .hero-card:hover .hero-card-foot .arrow {
+    background: var(--cream); color: var(--green); border-color: var(--cream);
+    transform: translateX(4px);
+  }
+  .hero-card.disabled { cursor: default; opacity: 0.85; }
+  .hero-card.disabled:hover { transform: none; background: rgba(250, 247, 241, 0.06); border-color: rgba(250, 247, 241, 0.18); }
+  .hero-card.disabled:hover .hero-card-foot .arrow { background: transparent; color: var(--cream); border-color: rgba(250, 247, 241, 0.3); transform: none; }
+
+  .hero-scroll {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    z-index: 2;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245,241,234,0.6);
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .hero-scroll-line {
+    width: 1px; height: 36px;
+    background: linear-gradient(180deg, rgba(245,241,234,0.6), transparent);
+    animation: scrollHint 2s ease-in-out infinite;
+  }
+  @keyframes scrollHint {
+    0%, 100% { transform: scaleY(1); transform-origin: top; opacity: 0.6; }
+    50% { transform: scaleY(0.5); transform-origin: top; opacity: 1; }
+  }
+
+  /* generic section */
+  .section { padding: 140px 0; position: relative; }
+  .section-tight { padding: 100px 0; }
+  .section-cream { background: var(--cream); }
+  .section-paper { background: var(--paper); }
+  .section-green { background: var(--green); color: var(--cream); }
+  .section-green h2, .section-green h3 { color: var(--cream); }
+
+  /* full-bleed image break */
+  .full-image {
+    height: 80vh;
+    min-height: 560px;
+    position: relative;
+    overflow: hidden;
+  }
+  .full-image .ph { width: 100%; height: 100%; }
+  .full-image .quote {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 80px var(--gutter);
+    background: linear-gradient(180deg, transparent 0%, rgba(31,46,37,0.7) 100%);
+    color: var(--cream);
+  }
+  .full-image .quote-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 60px;
+  }
+  .full-image .quote-text {
+    font-size: clamp(22px, 2.4vw, 32px);
+    font-weight: 300;
+    font-style: italic;
+    max-width: 28ch;
+    line-height: 1.3;
+    color: var(--cream);
+  }
+  .full-image .quote-meta {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--beige-soft);
+    flex-shrink: 0;
+  }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1.1fr 1fr; gap: 100px; align-items: center; }
+  .about-img { aspect-ratio: 4/5; border-radius: var(--radius-md); overflow: hidden; }
+  .about-img .ph { width: 100%; height: 100%; }
+  .about h2 {
+    font-size: clamp(36px, 4.5vw, 60px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-top: 24px;
+    margin-bottom: 28px;
+  }
+  .about h2 em { font-style: italic; color: var(--beige); font-weight: 300; }
+  .about p { color: var(--ink-mute); margin-bottom: 18px; max-width: 56ch; font-size: 17px; }
+  .about-cta { margin-top: 32px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .about-stats {
+    margin-top: 56px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    padding-top: 36px; border-top: 1px solid var(--line);
+  }
+  .about-stat .num {
+    font-size: 40px; font-weight: 300; color: var(--green); line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .about-stat .label {
+    font-size: 13px; color: var(--ink-mute); margin-top: 8px; line-height: 1.4;
+  }
+
+  /* Section header generic */
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 60px; margin-bottom: 64px; }
+  .sec-head h2 {
+    font-size: clamp(36px, 4.5vw, 60px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    max-width: 18ch;
+  }
+  .sec-head h2 em { font-style: italic; color: var(--beige); font-weight: 300; }
+  .sec-head .lead { max-width: 38ch; color: var(--ink-mute); font-size: 17px; }
+  .sec-head .eyebrow { margin-bottom: 18px; display: block; }
+
+  /* Pakiety */
+  .packages { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .pkg {
+    background: var(--white);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: all .3s ease;
+    cursor: pointer;
+  }
+  .pkg:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--line); }
+  .pkg-img { aspect-ratio: 4/3; }
+  .pkg-img .ph { width: 100%; height: 100%; }
+  .pkg-body { padding: 28px 28px 32px; flex: 1; display: flex; flex-direction: column; }
+  .pkg-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+  .pkg-season { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--beige); }
+  .pkg-nights { font-size: 12px; color: var(--ink-mute); }
+  .pkg h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+  .pkg p { color: var(--ink-mute); font-size: 15px; line-height: 1.55; flex: 1; }
+  .pkg-foot {
+    margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line-soft);
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .pkg-price .amt { font-size: 22px; font-weight: 700; color: var(--green); letter-spacing: -0.01em; }
+  .pkg-price .from { font-size: 11px; color: var(--ink-mute); margin-right: 4px; font-family: "JetBrains Mono", monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+  .pkg-price .per { font-size: 12px; color: var(--ink-mute); }
+  .pkg-arrow { font-size: 18px; color: var(--green); transition: transform .25s ease; }
+  .pkg:hover .pkg-arrow { transform: translateX(4px); }
+
+  /* Reviews */
+  .reviews-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(245,241,234,0.16);
+    border-bottom: 1px solid rgba(245,241,234,0.16);
+    margin: 12px 0 72px;
+  }
+  .reviews-stat {
+    padding: 44px 40px;
+    border-right: 1px solid rgba(245,241,234,0.16);
+  }
+  .reviews-stat:last-child { border-right: none; }
+  .reviews-stat .num {
+    font-size: 64px; font-weight: 300; color: var(--cream);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .reviews-stat .num span { font-size: 22px; color: var(--beige-soft); margin-left: 4px; letter-spacing: 0; font-weight: 300; }
+  .reviews-stat .label {
+    margin-top: 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(245,241,234,0.6); line-height: 1.5;
+  }
+
+  /* Slider opinii — full width */
+  .reviews-slider-wrap {
+    position: relative;
+    margin: 0 calc(50% - 50vw);
+    width: 100vw;
+  }
+  .reviews-slider {
+    display: flex;
+    gap: 28px;
+    padding: 12px max(32px, calc((100vw - 1440px) / 2 + 32px)) 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    user-select: none;
+  }
+  .reviews-slider:active { cursor: grabbing; }
+  .reviews-slider::-webkit-scrollbar { display: none; }
+  .reviews-slider .quote-card {
+    flex: 0 0 calc((min(100vw, 1440px) - 64px - 28px) / 2);
+    min-width: 320px;
+    user-select: none;
+  }
+  .reviews-nav {
+    display: flex; gap: 12px;
+    margin-top: 28px;
+    padding: 0 max(32px, calc((100vw - 1440px) / 2 + 32px));
+    justify-content: flex-end;
+  }
+  .reviews-nav button {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(245,241,234,0.3);
+    color: var(--cream);
+    display: flex; align-items: center; justify-content: center;
+    transition: all .2s ease;
+  }
+  .reviews-nav button:hover {
+    background: var(--cream);
+    color: var(--green-deep);
+    border-color: var(--cream);
+  }
+  .reviews-nav button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+  .reviews-nav button:disabled:hover {
+    background: transparent;
+    color: var(--cream);
+    border-color: rgba(245,241,234,0.3);
+  }
+  @media (max-width: 800px) {
+    .reviews-slider .quote-card { flex-basis: 85vw; min-width: unset; }
+  }
+
+  .quote-card {
+    position: relative;
+    padding: 56px 48px 40px;
+    background: rgba(245,241,234,0.04);
+    border: 1px solid rgba(245,241,234,0.12);
+    border-radius: 8px;
+    margin: 0;
+    display: flex; flex-direction: column;
+  }
+  .quote-card .quote-mark {
+    position: absolute; top: 18px; left: 40px;
+    font-family: "Lato", sans-serif; font-size: 96px; font-weight: 300;
+    line-height: 1; color: var(--beige); opacity: 0.7;
+    pointer-events: none;
+  }
+  .quote-card blockquote {
+    font-size: 21px; font-weight: 300; line-height: 1.55;
+    color: var(--cream); font-style: italic; margin: 0;
+    letter-spacing: -0.005em;
+    flex: 1;
+  }
+  .quote-card figcaption {
+    margin-top: 36px; padding-top: 22px;
+    border-top: 1px solid rgba(245,241,234,0.16);
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .quote-card figcaption .name { color: var(--beige-soft); font-weight: 700; }
+  .quote-card figcaption .meta { color: rgba(245,241,234,0.5); }
+
+  /* FAQ */
+  .faq-grid { display: grid; grid-template-columns: 320px 1fr; gap: 80px; align-items: flex-start; }
+  .faq-side { position: sticky; top: 120px; }
+  .faq-search {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 14px 20px;
+    margin-bottom: 32px;
+    transition: border-color .2s ease, box-shadow .2s ease;
+  }
+  .faq-search:focus-within { border-color: var(--green); box-shadow: 0 0 0 4px rgba(42,61,49,0.08); }
+  .faq-search svg { flex-shrink: 0; color: var(--ink-mute); }
+  .faq-search input {
+    border: 0; outline: 0; background: transparent;
+    font-family: inherit; font-size: 15px; color: var(--ink);
+    flex: 1; min-width: 0;
+  }
+  .faq-search input::placeholder { color: var(--ink-mute); }
+  .faq-cats { display: flex; flex-direction: column; gap: 4px; }
+  .faq-cat {
+    text-align: left;
+    padding: 12px 16px;
+    border-radius: var(--radius-md);
+    font-size: 15px; font-weight: 700; color: var(--ink-mute);
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background .2s ease, color .2s ease;
+    cursor: pointer;
+  }
+  .faq-cat:hover { background: var(--cream-deep); color: var(--green); }
+  .faq-cat.active { background: var(--green); color: var(--cream); }
+  .faq-cat .count { font-family: "JetBrains Mono", monospace; font-size: 11px; opacity: 0.6; }
+  .faq-list { display: flex; flex-direction: column; gap: 4px; }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+    transition: padding .25s ease;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--line); }
+  .faq-q {
+    width: 100%; text-align: left;
+    padding: 28px 24px 28px 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
+    font-size: 19px; font-weight: 700; color: var(--green);
+    transition: color .2s ease;
+  }
+  .faq-q:hover { color: var(--green-soft); }
+  .faq-q .icon {
+    flex-shrink: 0;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--cream-deep);
+    display: flex; align-items: center; justify-content: center;
+    transition: all .3s ease;
+    font-size: 16px;
+  }
+  .faq-item.open .faq-q .icon { background: var(--green); color: var(--cream); transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height .4s ease, padding .4s ease;
+    color: var(--ink-mute);
+    font-size: 16px; line-height: 1.7;
+  }
+  .faq-item.open .faq-a {
+    max-height: 500px;
+    padding: 0 60px 32px 0;
+  }
+  .faq-a-cat {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--beige); margin-bottom: 14px;
+  }
+  .faq-empty {
+    padding: 60px 0; text-align: center; color: var(--ink-mute);
+    border: 1px dashed var(--line); border-radius: var(--radius-md);
+    font-size: 15px;
+  }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px; align-items: stretch; }
+  .contact-info {
+    display: flex; flex-direction: column;
+  }
+  .contact-row {
+    display: grid; grid-template-columns: 140px 1fr;
+    align-items: baseline;
+    gap: 32px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .contact-row:first-child { padding-top: 4px; }
+  .contact-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .contact-row-locations { align-items: start; }
+  .contact-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--beige); font-weight: 700;
+    padding-top: 10px;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .contact-label svg { color: var(--beige); flex-shrink: 0; }
+  .contact-value {
+    font-size: 30px; font-weight: 300; color: var(--green);
+    letter-spacing: -0.015em; line-height: 1.2;
+    display: block; transition: color .2s ease;
+  }
+  a.contact-value:hover { color: var(--beige); }
+  .contact-meta {
+    display: block; margin-top: 12px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .contact-locations {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 36px;
+  }
+  .contact-location h4 {
+    font-size: 18px; font-weight: 700; color: var(--green);
+    margin-bottom: 10px; letter-spacing: -0.005em;
+  }
+  .contact-location p {
+    font-size: 15px; color: var(--ink); line-height: 1.6;
+  }
+  .contact-location.dim h4 { color: var(--ink-mute); }
+  .contact-location.dim p { color: var(--ink-mute); }
+  .badge-soon {
+    display: inline-block; margin-top: 14px;
+    padding: 5px 12px; border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink-mute); font-weight: 700;
+  }
+  .contact-map {
+    border-radius: 8px; overflow: hidden;
+    align-self: stretch;
+  }
+  .contact-map .ph { width: 100%; height: 100%; min-height: 560px; }
+
+  /* Footer */
+  .footer {
+    background: var(--green-deep); color: var(--cream);
+    padding: 96px 0 36px;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  .footer-hero {
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center;
+    gap: 32px;
+    padding-bottom: 60px;
+  }
+  .footer-hero img { height: 200px; width: auto; margin: 0; }
+  .footer-hero .nav-cta-outline {
+    height: 50px;
+    padding: 0 34px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+
+  .footer-divider { height: 1px; background: rgba(245,241,234,0.18); }
+
+  .footer-mid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    padding: 60px 0;
+    align-items: start;
+  }
+  .footer-locations { display: flex; flex-direction: column; gap: 44px; }
+  .footer-loc h5 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--beige); font-weight: 700;
+    margin: 0 0 16px;
+  }
+  .footer-loc p {
+    font-size: 16px; color: var(--cream); line-height: 1.7;
+    margin: 0;
+  }
+
+  .footer-contact {
+    text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 22px;
+  }
+  .footer-contact a {
+    font-size: 17px; color: var(--cream);
+    border-bottom: 1px solid rgba(245,241,234,0.4);
+    padding-bottom: 3px;
+    transition: border-color .2s ease;
+  }
+  .footer-contact a:hover { border-color: var(--cream); }
+  .footer-socials {
+    margin-top: 10px;
+    display: flex; gap: 28px;
+  }
+  .footer-socials a {
+    border: 0; padding: 0;
+    color: var(--beige);
+    transition: color .2s ease;
+  }
+  .footer-socials a:hover { color: var(--beige-soft); }
+
+  .footer-links {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 18px;
+  }
+  .footer-links a {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--cream); font-weight: 700;
+    transition: color .2s ease;
+  }
+  .footer-links a:hover { color: var(--beige); }
+
+  .footer-bottom {
+    padding-top: 30px;
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 24px;
+    font-size: 13px;
+    font-family: "JetBrains Mono", monospace; letter-spacing: 0.06em;
+    color: rgba(245,241,234,0.55);
+  }
+  .footer-langs { display: flex; gap: 28px; }
+  .footer-langs a {
+    text-transform: uppercase;
+    color: rgba(245,241,234,0.8);
+    border-bottom: 1px solid rgba(245,241,234,0.4);
+    padding-bottom: 3px;
+  }
+  .footer-langs a:hover { color: var(--cream); border-color: var(--cream); }
+
+  @media (max-width: 900px) {
+    .footer-mid { grid-template-columns: 1fr; gap: 48px; }
+    .footer-contact { text-align: left; align-items: flex-start; }
+    .footer-links { align-items: flex-start; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .footer-langs { flex-wrap: wrap; gap: 16px; }
+  }
+
+  /* responsive — mobile is not the focus but keep usable */
+  @media (max-width: 1024px) {
+    .nav-links { display: none; }
+    .hero-chooser { grid-template-columns: 1fr; }
+    .about, .reviews-quotes-grid, .faq-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .reviews-stats { grid-template-columns: 1fr; }
+    .reviews-stat { border-right: none; border-bottom: 1px solid rgba(245,241,234,0.16); }
+    .reviews-stat:last-child { border-bottom: none; }
+    .contact-row { grid-template-columns: 1fr; gap: 12px; }
+    .contact-locations { grid-template-columns: 1fr; }
+    .packages { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .section { padding: 90px 0; }
+    .full-image .quote-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+const { useState, useEffect, useMemo, useRef } = React;
+
+/* ---------- Icons ---------- */
+const IconImage = ({ size = 28 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2" />
+    <circle cx="9" cy="9" r="2" />
+    <path d="m21 15-4.586-4.586a2 2 0 0 0-2.828 0L3 21" />
+  </svg>
+);
+const IconArrow = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+);
+const IconSearch = ({ size = 18 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+);
+const IconPin = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+);
+const IconPhone = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92Z"/></svg>
+);
+const IconMail = ({ size = 16 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+);
+const IconInstagram = ({ size = 26 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37Z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+);
+const IconFacebook = ({ size = 26 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg>
+);
+
+/* ---------- Placeholder ---------- */
+const PH = ({ label = "ZDJĘCIE", icon = true }) => (
+  <div className="ph">
+    {icon && <IconImage size={32} />}
+    <span>{label}</span>
+  </div>
+);
+
+/* ---------- Nav ---------- */
+function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [lang, setLang] = useState("PL");
+  const [langOpen, setLangOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80);
+      const footer = document.querySelector(".footer");
+      if (footer) {
+        const rect = footer.getBoundingClientRect();
+        setHidden(rect.top <= window.innerHeight * 0.15);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  useEffect(() => {
+    const onClick = () => setLangOpen(false);
+    if (langOpen) {
+      window.addEventListener("click", onClick);
+      return () => window.removeEventListener("click", onClick);
+    }
+  }, [langOpen]);
+  return (
+    <header className={`nav ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}>
+      <div className="nav-inner nav-inner-landing">
+        <a href="#" className="nav-logo nav-logo-left" aria-label="Królowa Karkonoszy">
+          <img className="full" src="assets/logo.svg" alt="Królowa Karkonoszy" />
+          <img className="mark" src="assets/logomark.svg" alt="Królowa Karkonoszy" />
+        </a>
+        <div className="nav-right-group">
+          <nav className="nav-langs-inline" aria-label="Języki">
+            {["PL","EN","DE","CZ"].map(l => (
+              <button
+                key={l}
+                className={`nav-lang-inline ${l===lang?"active":""}`}
+                onClick={() => setLang(l)}
+                aria-pressed={l===lang}
+              >{l}</button>
+            ))}
+          </nav>
+          <a className="nav-cta-outline" href="Szklarska Poreba.html">SPRAWDŹ DOSTĘPNOŚĆ</a>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+/* ---------- Hero ---------- */
+function Hero() {
+  return (
+    <section className="hero" data-screen-label="01 Hero">
+      <div className="hero-bg" />
+      <div className="hero-content hero-content-center">
+        <div className="hero-chooser hero-chooser-wide">
+          <a
+            href="Szklarska Poreba.html"
+            className="hero-card-v2"
+          >
+            <div className="hero-card-v2-img">
+              <img src="assets/card-szklarska.png" alt="Szklarska Poręba — historyczny obiekt" />
+            </div>
+            <div className="hero-card-v2-panel">
+              <h3>SZKLARSKA PORĘBA</h3>
+              <p>Historyczny obiekt z widokiem na Karkonosze i Góry Izerskie. Miejsce dawnego sanatorium Hochstein, blisko centrum i dworca PKP</p>
+              <span className="hero-card-v2-cta">ZOBACZ OBIEKT</span>
+            </div>
+          </a>
+
+          <div className="hero-card-v2 hero-card-v2-info" aria-label="Karpacz — obiekt czynny, strona w przygotowaniu">
+            <div className="hero-card-v2-img">
+              <img src="assets/card-karpacz.png" alt="Karpacz — obiekt czynny" />
+            </div>
+            <div className="hero-card-v2-panel">
+              <h3>KARPACZ</h3>
+              <p>Obiekt jest czynny. Pracujemy nad stroną tej lokalizacji. W sprawie pobytu zapraszamy do bezpośredniego kontaktu</p>
+              <div className="hero-card-v2-contact">
+                <a href="tel:+48600886172" className="hero-card-v2-contact-row">
+                  <IconPhone size={15} />
+                  <span>+48 600 886 172</span>
+                </a>
+                <a href="mailto:krolowakarkonoszy@wp.pl" className="hero-card-v2-contact-row">
+                  <IconMail size={15} />
+                  <span>krolowakarkonoszy@wp.pl</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Full image break ---------- */
+function FullImage({ label, quote, by, idx }) {
+  return (
+    <section className="full-image" data-screen-label={`${idx} Foto`}>
+      <PH label={label} />
+      {quote && (
+        <div className="quote">
+          <div className="quote-inner">
+            <p className="quote-text">{"„"}{quote}{"”"}</p>
+            <div className="quote-meta">{by}</div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+/* ---------- About ---------- */
+function About() {
+  return (
+    <section id="o-nas" className="section section-paper" data-screen-label="03 O nas">
+      <div className="wrap">
+        <div className="about">
+          <div className="about-img"><PH label="WŁAŚCICIELKA · MALWINA" /></div>
+          <div>
+            <span className="eyebrow">O nas</span>
+            <h2>Pensjonat <em>z bogatą historią</em>, w sercu Karkonoszy.</h2>
+            <p>
+              Królowa Karkonoszy to obiekt w Szklarskiej Porębie z 96 pokojami w dwóch częściach —
+              klasycznej i świeżo odnowionej z aneksami kuchennymi, windą i siłownią. Przyjmujemy
+              zarówno gości indywidualnych, jak i grupy zorganizowane.
+            </p>
+            <p>
+              Lokalizacja w pobliżu centrum, w otoczeniu zieleni, nad strumieniem — 5 minut od dworca
+              PKP Szklarska Poręba Górna. Sąsiedztwo Centrum Rekreacji „Orlik", bezpłatny parking dla
+              aut i autokarów, sala restauracyjna na śniadania i obiadokolacje.
+            </p>
+            <div className="about-cta">
+              <a className="btn-link" href="#">Poznaj naszą historię <IconArrow size={14} /></a>
+            </div>
+            <div className="about-stats">
+              <div className="about-stat"><div className="num">28</div><div className="label">lat na rynku</div></div>
+              <div className="about-stat"><div className="num">70%</div><div className="label">gości wraca</div></div>
+              <div className="about-stat"><div className="num">2</div><div className="label">obiekty w&nbsp;Karkonoszach</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Pakiety ---------- */
+const PACKAGES = [
+  {
+    season: "Wiosna · marzec–maj",
+    nights: "2 noce",
+    title: "Roztopy i pierwsze szlaki",
+    desc: "Pokój Premium z aneksem, śniadania bufet i obiadokolacje, mapa szlaków otwieranych po zimie.",
+    price: "Zapytaj",
+    img: "PAKIET · WIOSNA",
+  },
+  {
+    season: "Lato · czerwiec–sierpień",
+    nights: "3 noce",
+    title: "Długi weekend pod Szrenicą",
+    desc: "Trzy noclegi, śniadania bufet i obiadokolacje, bezpłatny parking, dobra baza wypadowa na szlaki Karkonoszy.",
+    price: "Zapytaj",
+    img: "PAKIET · LATO",
+  },
+  {
+    season: "Zima · grudzień–luty",
+    nights: "4 noce",
+    title: "Narty pod Szrenicą",
+    desc: "Cztery noce w sezonie narciarskim, śniadania bufet i obiadokolacje, parking dla aut i bagażu narciarskiego.",
+    price: "Zapytaj",
+    img: "PAKIET · ZIMA",
+  },
+];
+
+function Pakiety() {
+  return (
+    <section id="pakiety" className="section section-cream" data-screen-label="05 Pakiety">
+      <div className="wrap">
+        <div className="sec-head">
+          <div>
+            <span className="eyebrow">Pakiety sezonowe</span>
+            <h2>Pomysły na <em>kilka dni</em> w&nbsp;Karkonoszach.</h2>
+          </div>
+          <p className="lead">
+            Trzy gotowe pomysły — od cichej wiosny do narciarskiej zimy. Każdy łatwo zmodyfikujemy pod ciebie.
+          </p>
+        </div>
+        <div className="packages">
+          {PACKAGES.map((p, i) => (
+            <article className="pkg" key={i}>
+              <div className="pkg-img"><PH label={p.img} /></div>
+              <div className="pkg-body">
+                <div className="pkg-meta">
+                  <span className="pkg-season">{p.season}</span>
+                  <span className="pkg-nights">{p.nights}</span>
+                </div>
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+                <div className="pkg-foot">
+                  <div className="pkg-price">
+                    {p.price === "Zapytaj" ? (
+                      <span className="amt" style={{fontSize: 15, color: "var(--beige)", letterSpacing: "0.08em", textTransform: "uppercase"}}>Zapytaj o cenę</span>
+                    ) : (
+                      <>
+                        <span className="from">od</span>
+                        <span className="amt">{p.price} zł</span>
+                        <span className="per"> / 2 osoby</span>
+                      </>
+                    )}
+                  </div>
+                  <span className="pkg-arrow"><IconArrow /></span>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Reviews ---------- */
+const REVIEWS = [
+  {
+    text: "Wracamy tu od ośmiu lat. Pokój Premium z aneksem, śniadanie z bufetu i widok z balkonu na Karkonosze. Dla nas to już rodzinna tradycja.",
+    name: "Aleksandra K.",
+    meta: "Warszawa · 8. pobyt",
+  },
+  {
+    text: "Idealne miejsce na obóz piłkarski — sąsiedztwo Centrum Orlik to ogromny atut. Drużyna trenowała, my mieliśmy spokój i porządne wyżywienie.",
+    name: "Trener Piotr W.",
+    meta: "Wrocław · obóz piłkarski",
+  },
+  {
+    text: "Spokój. Tego się nie da podrobić. Żadnego hałasu, żadnego sztucznego luksusu. Po prostu dobrze prowadzone miejsce w górach.",
+    name: "Tomáš M.",
+    meta: "Praha · 3. pobyt",
+  },
+  {
+    text: "Przyjechaliśmy z dziadkami i dwójką dzieci. Studio przechodnie 2+3 było strzałem w dziesiątkę — wszyscy mieli swój kąt, a bufet uratował nas z niejadkiem.",
+    name: "Marta i Karol B.",
+    meta: "Kraków · pobyt rodzinny",
+  },
+  {
+    text: "Turniej szachowy w Szklarskiej organizujemy trzeci rok z rzędu. Pojemność obiektu, parking dla autokarów, cisza w okolicy — wszystko działa jak należy.",
+    name: "Klub Szachowy „Hetman\"",
+    meta: "Poznań · trzeci turniej",
+  },
+];
+
+function Opinie() {
+  const sliderRef = useRef(null);
+
+  useEffect(() => {
+    const el = sliderRef.current;
+    if (!el) return;
+    let paused = false;
+    let isDragging = false;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let raf = null;
+    let lastTs = 0;
+    let acc = 0;
+    const SPEED = 80; // px / sekunda
+
+    const onEnter = () => { paused = true; };
+    const onLeave = () => { if (!isDragging) paused = false; };
+    const onDown = (e) => {
+      isDragging = true;
+      paused = true;
+      startX = e.pageX;
+      startScrollLeft = el.scrollLeft;
+      e.preventDefault();
+    };
+    const onMove = (e) => {
+      if (!isDragging) return;
+      el.scrollLeft = startScrollLeft - (e.pageX - startX);
+    };
+    const onUp = () => {
+      if (!isDragging) return;
+      isDragging = false;
+      paused = false;
+    };
+    const onTouchStart = () => { paused = true; };
+    const onTouchEnd = () => { paused = false; };
+
+    el.addEventListener("mouseenter", onEnter);
+    el.addEventListener("mouseleave", onLeave);
+    el.addEventListener("mousedown", onDown);
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchend", onTouchEnd, { passive: true });
+
+    const animate = (ts) => {
+      if (!lastTs) lastTs = ts;
+      const dt = (ts - lastTs) / 1000;
+      lastTs = ts;
+      if (!paused && !document.hidden && dt < 0.5) {
+        acc += SPEED * dt;
+        if (acc >= 1) {
+          const step = Math.floor(acc);
+          el.scrollLeft += step;
+          acc -= step;
+          if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) {
+            el.scrollLeft = 0;
+          }
+        }
+      }
+      raf = requestAnimationFrame(animate);
+    };
+    raf = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener("mouseenter", onEnter);
+      el.removeEventListener("mouseleave", onLeave);
+      el.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchend", onTouchEnd);
+    };
+  }, []);
+
+  return (
+    <section id="opinie" className="section section-green" data-screen-label="07 Opinie">
+      <div className="wrap">
+        <div className="sec-head">
+          <div>
+            <span className="eyebrow" style={{ color: "var(--beige-soft)" }}>Opinie gości</span>
+            <h2 style={{ color: "var(--cream)" }}>Najlepiej powie to <em style={{ color: "var(--beige-soft)" }}>ktoś, kto już tu był</em>.</h2>
+          </div>
+          <p className="lead" style={{ color: "rgba(245,241,234,0.7)" }}>
+            Większość naszych gości wraca. Niektórzy z całą rodziną, niektórzy co rok w te same daty, niektórzy z całą drużyną.
+          </p>
+        </div>
+
+        <div className="reviews-stats">
+          <div className="reviews-stat">
+            <div className="num">70<span>%</span></div>
+            <div className="label">gości wraca do nas</div>
+          </div>
+          <div className="reviews-stat">
+            <div className="num">4.9<span>/5</span></div>
+            <div className="label">w 312 recenzjach Booking</div>
+          </div>
+          <div className="reviews-stat">
+            <div className="num">8<span>&nbsp;lat</span></div>
+            <div className="label">średnia długość znajomości</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="reviews-slider-wrap">
+        <div className="reviews-slider" ref={sliderRef}>
+          {REVIEWS.map((r, i) => (
+            <figure className="quote-card" key={i}>
+              <div className="quote-mark" aria-hidden="true">&ldquo;</div>
+              <blockquote>{r.text}</blockquote>
+              <figcaption>
+                <span className="name">{r.name}</span>
+                <span className="meta">{r.meta}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- FAQ ---------- */
+const FAQS = [
+  { cat: "Rezerwacje", q: "Jak zarezerwować pokój?", a: "Najprościej przez stronę — wybierz daty w kalendarzu i klikaj „Rezerwuj\". Możesz też zadzwonić: 600 886 172, codziennie 8:00–22:00. Płatność kartą lub przelewem, zaliczka 30%." },
+  { cat: "Rezerwacje", q: "Do kiedy mogę bezpłatnie odwołać rezerwację?", a: "Bezpłatne anulowanie do 7 dni przed przyjazdem. Później pobieramy zaliczkę. W sezonie zimowym (grudzień–luty) okno wynosi 14 dni." },
+  { cat: "Rezerwacje", q: "Czy są zniżki dla powracających gości?", a: "Tak — od trzeciego pobytu automatycznie -10%, od piątego -15%. Nie musisz nic zgłaszać, sami pamiętamy." },
+
+  { cat: "Przyjazd", q: "Kiedy mogę się zameldować?", a: "Zameldowanie od 15:00, wymeldowanie do 11:00. Jeśli przyjeżdżasz wcześniej — przechowamy bagaż i napijesz się kawy w salonie." },
+  { cat: "Przyjazd", q: "Co jeśli przyjadę po 22:00?", a: "Bez problemu. Daj znać telefonicznie — dostaniesz kod do drzwi i instrukcję. Klucz będzie czekał w pokoju." },
+  { cat: "Przyjazd", q: "Czy macie parking?", a: "Tak, parking własny przy pensjonacie — bez opłat, bez stresu. Miejsca przypisane do pokoju." },
+
+  { cat: "Pokoje", q: "Jaka jest różnica między Standard a Premium?", a: "Premium to pokoje po remoncie z 2024 — z odsłoniętą cegłą, designerską łazienką i większym metrażem. Standard to klasyczne, ciepło urządzone pokoje z drewnem. Wygodne są oba — Premium są po prostu nowsze." },
+  { cat: "Pokoje", q: "Czy każdy pokój ma widok?", a: "Większość — tak. Najlepsze widoki mają pokoje 2, 5, 7 i 9 (na Śnieżkę). Przy rezerwacji zaznacz, jeśli widok jest dla ciebie ważny." },
+  { cat: "Pokoje", q: "Czy łóżko jest podwójne czy dwa pojedyncze?", a: "Standardowo łóżko podwójne 180×200. Możemy rozdzielić na dwa pojedyncze — daj znać przy rezerwacji." },
+
+  { cat: "Zwierzęta", q: "Czy mogę przyjechać z psem?", a: "Tak, kochamy psy. Opłata 50 zł/noc za sprzątanie. Mamy miski, koce i mapę okolicznych szlaków psich. Bez ograniczeń wagowych." },
+  { cat: "Zwierzęta", q: "Czy są ograniczenia?", a: "Pies nie wchodzi do jadalni podczas śniadań — śniadanie zaniesiemy do pokoju lub na taras." },
+
+  { cat: "Śniadania", q: "O której są śniadania?", a: "8:00–10:30 w jadalni z widokiem na góry. Domowy chleb, jajka od Pani Krysi z sąsiedztwa, pierogi, naleśniki i porządna kawa." },
+  { cat: "Śniadania", q: "A jeśli mam alergię lub jestem na diecie?", a: "Daj znać przy rezerwacji albo dzień przed. Mamy opcje wegańskie, bezglutenowe, bezlaktozowe — bez dopłat." },
+];
+
+const FAQ_CATS = ["Wszystkie", ...Array.from(new Set(FAQS.map(f => f.cat)))];
+
+function FAQ() {
+  const [active, setActive] = useState("Wszystkie");
+  const [query, setQuery] = useState("");
+  const [openIdx, setOpenIdx] = useState(0);
+
+  const filtered = useMemo(() => {
+    return FAQS.filter(f => {
+      const inCat = active === "Wszystkie" || f.cat === active;
+      const q = query.trim().toLowerCase();
+      const inQ = !q || f.q.toLowerCase().includes(q) || f.a.toLowerCase().includes(q);
+      return inCat && inQ;
+    });
+  }, [active, query]);
+
+  const counts = useMemo(() => {
+    const o = { Wszystkie: FAQS.length };
+    FAQS.forEach(f => { o[f.cat] = (o[f.cat] || 0) + 1; });
+    return o;
+  }, []);
+
+  return (
+    <section id="faq" className="section section-paper" data-screen-label="08 FAQ">
+      <div className="wrap">
+        <div className="sec-head">
+          <div>
+            <span className="eyebrow">Najczęstsze pytania</span>
+            <h2>Zanim zadzwonisz — <em>może już tu odpowiedzieliśmy</em>.</h2>
+          </div>
+          <p className="lead">
+            Wszystko czego goście pytają najczęściej — rezerwacje, przyjazd, pokoje, psy, śniadania.
+            Coś jest niejasne? Po prostu zadzwoń.
+          </p>
+        </div>
+
+        <div className="faq-grid">
+          <aside className="faq-side">
+            <label className="faq-search">
+              <IconSearch />
+              <input
+                type="text"
+                placeholder="Szukaj w FAQ…"
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+              />
+            </label>
+            <div className="faq-cats">
+              {FAQ_CATS.map(c => (
+                <button
+                  key={c}
+                  className={`faq-cat ${active === c ? "active" : ""}`}
+                  onClick={() => { setActive(c); setOpenIdx(-1); }}
+                >
+                  <span>{c}</span>
+                  <span className="count">{String(counts[c] || 0).padStart(2, "0")}</span>
+                </button>
+              ))}
+            </div>
+          </aside>
+
+          <div>
+            {filtered.length === 0 ? (
+              <div className="faq-empty">
+                Nic nie znaleźliśmy. Zadzwoń: <strong>600 886 172</strong>
+              </div>
+            ) : (
+              <div className="faq-list">
+                {filtered.map((f, i) => (
+                  <div key={f.q} className={`faq-item ${openIdx === i ? "open" : ""}`}>
+                    <button className="faq-q" onClick={() => setOpenIdx(openIdx === i ? -1 : i)}>
+                      <span>{f.q}</span>
+                      <span className="icon">+</span>
+                    </button>
+                    <div className="faq-a">
+                      {active === "Wszystkie" && <div className="faq-a-cat">{f.cat}</div>}
+                      <p>{f.a}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Contact ---------- */
+function Kontakt() {
+  return (
+    <section id="kontakt" className="section section-cream" data-screen-label="09 Kontakt">
+      <div className="wrap">
+        <div className="sec-head">
+          <div>
+            <span className="eyebrow">Kontakt</span>
+            <h2>Napisz, zadzwoń <em>albo po prostu przyjedź</em>.</h2>
+          </div>
+          <p className="lead">
+            Recepcja czynna codziennie 8:00–22:00. Poza tym — kod do drzwi i klucz w pokoju.
+          </p>
+        </div>
+
+        <div className="contact-grid">
+          <div className="contact-info">
+            <div className="contact-row">
+              <span className="contact-label"><IconPhone size={14}/> Telefon</span>
+              <div>
+                <a href="tel:+48600886172" className="contact-value">600 886 172</a>
+                <a href="tel:+48606503279" className="contact-value" style={{display:"block", marginTop:8}}>606 503 279</a>
+                <span className="contact-meta">recepcja</span>
+              </div>
+            </div>
+            <div className="contact-row">
+              <span className="contact-label"><IconMail size={14}/> E-mail</span>
+              <div>
+                <a href="mailto:krolowakarkonoszy@wp.pl" className="contact-value">krolowakarkonoszy@wp.pl</a>
+                <span className="contact-meta">odpowiadamy w ciągu 24 h</span>
+              </div>
+            </div>
+            <div className="contact-row contact-row-locations">
+              <span className="contact-label"><IconPin size={14}/> Lokalizacje</span>
+              <div className="contact-locations">
+                <div className="contact-location">
+                  <h4>Szklarska Poręba</h4>
+                  <p>ul. Słowackiego 11a<br/>58-580 Szklarska Poręba</p>
+                </div>
+                <div className="contact-location dim">
+                  <h4>Karpacz</h4>
+                  <p>ul. Konstytucji 3 Maja 8<br/>58-540 Karpacz</p>
+                  <span className="badge-soon">otwarcie 2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="contact-map"><PH label="MAPA · GOOGLE MAPS" /></div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Footer ---------- */
+function Footer() {
+  return (
+    <footer className="footer">
+      <div className="wrap">
+        <div className="footer-hero">
+          <img src="assets/logo.svg" alt="Królowa Karkonoszy" />
+          <a href="Szklarska Poreba.html" className="nav-cta-outline">ZOBACZ OBIEKT</a>
+        </div>
+
+        <div className="footer-divider"></div>
+
+        <div className="footer-mid">
+          <div className="footer-locations">
+            <div className="footer-loc">
+              <h5>Szklarska Poręba</h5>
+              <p>ul. Słowackiego 11a<br/>58-580 Szklarska Poręba</p>
+            </div>
+            <div className="footer-loc">
+              <h5>Karpacz</h5>
+              <p>obiekt czynny<br/>strona w przygotowaniu</p>
+            </div>
+          </div>
+
+          <div className="footer-contact">
+            <a href="tel:+48600886172">+48 600 886 172</a>
+            <a href="tel:+48606503279">+48 606 503 279</a>
+            <a href="mailto:krolowakarkonoszy@wp.pl">krolowakarkonoszy@wp.pl</a>
+            <div className="footer-socials">
+              <a href="#" aria-label="Instagram"><IconInstagram size={32} /></a>
+              <a href="#" aria-label="Facebook"><IconFacebook size={32} /></a>
+            </div>
+          </div>
+
+          <div className="footer-links">
+            <a href="Szklarska Poreba.html">Szklarska Poręba</a>
+            <a href="#" aria-disabled="true" onClick={(e) => e.preventDefault()}>Karpacz</a>
+            <a href="#">Polityka prywatności</a>
+            <a href="#">Regulamin</a>
+            <a href="#">Cookies</a>
+          </div>
+        </div>
+
+        <div className="footer-divider"></div>
+
+        <div className="footer-bottom">
+          <span>© 2026 Królowa Karkonoszy</span>
+          <div className="footer-langs">
+            <a href="#">Polski</a>
+            <a href="#">English</a>
+            <a href="#">Deutsch</a>
+            <a href="#">Čeština</a>
+          </div>
+          <span>Made by important.is</span>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+/* ---------- App ---------- */
+function App() {
+  return (
+    <>
+      <Nav />
+      <Hero />
+      <Footer />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
