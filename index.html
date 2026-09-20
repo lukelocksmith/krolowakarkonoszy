@@ -1299,8 +1299,6 @@ const PH = ({ label = "ZDJĘCIE", icon = true }) => (
 /* ---------- Nav ---------- */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang] = useState("PL");
-  const [langOpen, setLangOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
@@ -1316,13 +1314,6 @@ function Nav() {
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  useEffect(() => {
-    const onClick = () => setLangOpen(false);
-    if (langOpen) {
-      window.addEventListener("click", onClick);
-      return () => window.removeEventListener("click", onClick);
-    }
-  }, [langOpen]);
   // Menu mobilne: blokada scrolla, Esc zamyka, powrót na desktop zamyka
   useEffect(() => {
     document.body.classList.toggle("nav-locked", menuOpen);
@@ -1338,7 +1329,6 @@ function Nav() {
   }, [menuOpen]);
   useEffect(() => () => document.body.classList.remove("nav-locked"), []);
   const closeMenu = () => setMenuOpen(false);
-  const LANGS = ["PL","EN","DE","CZ"];
   return (
     <>
       <header className={`nav ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""} ${menuOpen ? "menu-open" : ""}`}>
@@ -1349,17 +1339,6 @@ function Nav() {
             <img className="dark" src="/krolowa-karkonoszy/logo-dark.svg" alt="" aria-hidden="true" />
           </a>
           <div className="nav-right-group">
-            <a className="nav-link" href="/szklarska-poreba.html#grupy">GRUPY</a>
-            <nav className="nav-langs-inline" aria-label="Języki">
-              {LANGS.map(l => (
-                <button
-                  key={l}
-                  className={`nav-lang-inline ${l===lang?"active":""}`}
-                  onClick={() => setLang(l)}
-                  aria-pressed={l===lang}
-                >{l}</button>
-              ))}
-            </nav>
             <a className="nav-cta-outline" href="mailto:krolowakarkonoszy@wp.pl">Napisz do nas</a>
           </div>
           <button
@@ -1385,20 +1364,7 @@ function Nav() {
         className={`nav-mobile-panel ${menuOpen ? "is-open" : ""}`}
         aria-hidden={!menuOpen}
       >
-        <nav className="nav-mobile-links" aria-label="Sekcje">
-          <a className="nav-mobile-link" href="/szklarska-poreba.html#grupy" onClick={closeMenu}>GRUPY</a>
-        </nav>
         <div className="nav-mobile-foot">
-          <nav className="nav-langs-inline" aria-label="Języki">
-            {LANGS.map(l => (
-              <button
-                key={l}
-                className={`nav-lang-inline ${l===lang?"active":""}`}
-                onClick={() => setLang(l)}
-                aria-pressed={l===lang}
-              >{l}</button>
-            ))}
-          </nav>
           <a className="nav-cta-outline" href="mailto:krolowakarkonoszy@wp.pl" onClick={closeMenu}>Napisz do nas</a>
         </div>
       </div>
