@@ -2448,7 +2448,7 @@ const PH = ({ label = "ZDJĘCIE", icon = true }) => (
 
 /* ---------- Nav ----------
    Pass `links` as [{href, label}], `home` for the logo link target. */
-function Nav({ links, home = "/krolowa-karkonoszy/index.html" }) {
+function Nav({ links, home = "/index.html" }) {
   const [scrolled, setScrolled] = __useState_shared(false);
   const [lang, setLang] = __useState_shared("PL");
   const [hidden, setHidden] = __useState_shared(false);
@@ -2617,10 +2617,10 @@ function Footer() {
           </div>
 
           <div className="footer-links">
-            <a href="/krolowa-karkonoszy/historia.html">HISTORIA</a>
-            <a href="/krolowa-karkonoszy/historia.html">HISTORIA</a>
-            <a href="/krolowa-karkonoszy/szklarska-poreba.html#opinie">OPINIE</a>
-            <a href="/krolowa-karkonoszy/szklarska-poreba.html#faq">FAQ</a>
+            <a href="/historia.html">HISTORIA</a>
+            <a href="/historia.html">HISTORIA</a>
+            <a href="/szklarska-poreba.html#opinie">OPINIE</a>
+            <a href="/szklarska-poreba.html#faq">FAQ</a>
             <a href="#">POLITYKA PRYWATNOŚCI</a>
             <a href="#">REGULAMIN</a>
             <a href="#">COOKIES</a>
@@ -2658,13 +2658,13 @@ const { useState, useEffect, useRef } = React;
 
 /* ===== Page data ===== */
 const NAV_LINKS = [
-  { href: "/krolowa-karkonoszy/szklarska-poreba.html", label: "OBIEKT" },
-  { href: "/krolowa-karkonoszy/szklarska-poreba.html#grupy", label: "GRUPY" },
-  { href: "/krolowa-karkonoszy/szklarska-poreba.html#noclegi", label: "NOCLEGI" },
-  { href: "/krolowa-karkonoszy/szklarska-poreba.html#wyzywienie", label: "WYŻYWIENIE" },
-  { href: "/krolowa-karkonoszy/szklarska-poreba.html#galeria", label: "GALERIA" },
-  { href: "/krolowa-karkonoszy/szklarska-poreba.html#okolica", label: "OKOLICA" },
-  { href: "/krolowa-karkonoszy/szklarska-poreba.html#kontakt", label: "KONTAKT" },
+  { href: "/szklarska-poreba.html", label: "OBIEKT" },
+  { href: "/szklarska-poreba.html#grupy", label: "GRUPY" },
+  { href: "/szklarska-poreba.html#noclegi", label: "NOCLEGI" },
+  { href: "/szklarska-poreba.html#wyzywienie", label: "WYŻYWIENIE" },
+  { href: "/szklarska-poreba.html#galeria", label: "GALERIA" },
+  { href: "/szklarska-poreba.html#okolica", label: "OKOLICA" },
+  { href: "/szklarska-poreba.html#kontakt", label: "KONTAKT" },
 ];
 
 const ROOMS_STANDARD = {
@@ -3257,8 +3257,8 @@ function HistoriaOutro() {
             </p>
           </div>
           <div className="hist-outro-actions">
-            <a className="btn btn-primary" href="/krolowa-karkonoszy/szklarska-poreba.html">Wróć na stronę obiektu</a>
-            <a className="btn btn-ghost" href="/krolowa-karkonoszy/szklarska-poreba.html#kontakt">Zapytaj o termin</a>
+            <a className="btn btn-primary" href="/szklarska-poreba.html">Wróć na stronę obiektu</a>
+            <a className="btn btn-ghost" href="/szklarska-poreba.html#kontakt">Zapytaj o termin</a>
           </div>
         </div>
       </div>
@@ -3287,7 +3287,7 @@ function HistoriaTeaser() {
               elementach wnętrz.
             </p>
             <div className="hist-teaser-cta">
-              <a className="btn-link" href="/krolowa-karkonoszy/historia.html">
+              <a className="btn-link" href="/historia.html">
                 Poznaj historię obiektu <IconArrow size={14} />
               </a>
             </div>
@@ -4750,13 +4750,13 @@ function App() {
   return (
     <>
       <a href="#main" className="skip-link">Przejdź do treści</a>
-      <Nav links={NAV_LINKS} home="/krolowa-karkonoszy/index.html" />
+      <Nav links={NAV_LINKS} home="/index.html" />
       <main id="main">
       <HistoriaJoint />
       <HistoriaOutro />
       </main>
       <Footer />
-      {/* Pełna historia przeniesiona na /krolowa-karkonoszy/historia.html (komponent HistoriaJoint). */}
+      {/* Pełna historia przeniesiona na /historia.html (komponent HistoriaJoint). */}
       {/* Strefa relaksu: sekcja <SpaTeaser /> zdjęta, informacja została w FAQ. */}
       {/* <Packages /> */}
     </>

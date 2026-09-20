@@ -2424,7 +2424,7 @@ const PH = ({ label = "ZDJĘCIE", icon = true }) => (
 
 /* ---------- Nav ----------
    Pass `links` as [{href, label}], `home` for the logo link target. */
-function Nav({ links, home = "/krolowa-karkonoszy/index.html" }) {
+function Nav({ links, home = "/index.html" }) {
   const [scrolled, setScrolled] = __useState_shared(false);
   const [lang, setLang] = __useState_shared("PL");
   const [hidden, setHidden] = __useState_shared(false);
@@ -2593,7 +2593,7 @@ function Footer() {
           </div>
 
           <div className="footer-links">
-            <a href="/krolowa-karkonoszy/historia-karpacz.html">HISTORIA</a>
+            <a href="/historia-karpacz.html">HISTORIA</a>
             <a href="#opinie">OPINIE</a>
             <a href="#faq">FAQ</a>
             <a href="#">POLITYKA PRYWATNOŚCI</a>
@@ -2637,7 +2637,7 @@ const NAV_LINKS = [
   { href: "#noclegi", label: "NOCLEGI" },
   { href: "#wyzywienie", label: "WYŻYWIENIE" },
   { href: "#galeria", label: "GALERIA" },
-  { href: "/krolowa-karkonoszy/historia-karpacz.html", label: "HISTORIA" },
+  { href: "/historia-karpacz.html", label: "HISTORIA" },
   { href: "#okolica", label: "OKOLICA" },
   { href: "#faq", label: "FAQ" },
   { href: "#kontakt", label: "KONTAKT" },
@@ -3125,7 +3125,7 @@ function HistoriaTeaser() {
               Dwa lub trzy zdania, reszta na&nbsp;osobnej podstronie.
             </p>
             <div className="hist-teaser-cta">
-              <a className="btn-link" href="/krolowa-karkonoszy/historia-karpacz.html">
+              <a className="btn-link" href="/historia-karpacz.html">
                 Poznaj historię obiektu <IconArrow size={14} />
               </a>
             </div>
@@ -4583,7 +4583,7 @@ function App() {
   return (
     <>
       <a href="#main" className="skip-link">Przejdź do treści</a>
-      <Nav links={NAV_LINKS} home="/krolowa-karkonoszy/index.html" />
+      <Nav links={NAV_LINKS} home="/index.html" />
       <main id="main">
       <Hero />
       <QuickStrip />
@@ -4608,7 +4608,7 @@ function App() {
       </main>
       <Footer />
       <Lightbox />
-      {/* Pełna historia przeniesiona na /krolowa-karkonoszy/historia-karpacz.html (komponent HistoriaJoint). */}
+      {/* Pełna historia przeniesiona na /historia-karpacz.html (komponent HistoriaJoint). */}
       {/* Strefa relaksu: sekcja <SpaTeaser /> zdjęta, informacja została w FAQ. */}
       {/* <Packages /> */}
     </>

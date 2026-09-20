@@ -319,12 +319,12 @@ function Nav() {
   const [lang, setLang]         = useState("PL");
   const [menuOpen, setMenuOpen] = useState(false);
   const LINKS = [
-    { href: "/krolowa-karkonoszy/szklarska-poreba.html#o-nas",   label: "O NAS" },
-    { href: "/krolowa-karkonoszy/szklarska-poreba.html#noclegi", label: "NOCLEGI" },
-    { href: "/krolowa-karkonoszy/szklarska-poreba.html#grupy",   label: "GRUPY" },
-    { href: "/krolowa-karkonoszy/szklarska-poreba.html#galeria", label: "GALERIA" },
-    { href: "/krolowa-karkonoszy/szklarska-poreba.html#okolica", label: "OKOLICA" },
-    { href: "/krolowa-karkonoszy/szklarska-poreba.html#kontakt", label: "KONTAKT" },
+    { href: "/szklarska-poreba.html#o-nas",   label: "O NAS" },
+    { href: "/szklarska-poreba.html#noclegi", label: "NOCLEGI" },
+    { href: "/szklarska-poreba.html#grupy",   label: "GRUPY" },
+    { href: "/szklarska-poreba.html#galeria", label: "GALERIA" },
+    { href: "/szklarska-poreba.html#okolica", label: "OKOLICA" },
+    { href: "/szklarska-poreba.html#kontakt", label: "KONTAKT" },
   ];
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -351,7 +351,7 @@ function Nav() {
     <>
       <header className={`nav ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`}>
         <div className="nav-inner nav-inner-szkl">
-          <a href="/krolowa-karkonoszy/szklarska-poreba.html" className="nav-logo nav-logo-left" aria-label="Królowa Karkonoszy">
+          <a href="/szklarska-poreba.html" className="nav-logo nav-logo-left" aria-label="Królowa Karkonoszy">
             <img className="full" src="/krolowa-karkonoszy/logo.svg" alt="Królowa Karkonoszy" />
             <img className="mark" src="/krolowa-karkonoszy/logomark.svg" alt="Królowa Karkonoszy" />
             <img className="dark" src="/krolowa-karkonoszy/logo-dark.svg" alt="" aria-hidden="true" />
@@ -422,7 +422,7 @@ function Hero() {
   return (
     <section className="grp-hero">
       <div className="grp-hero-bg" aria-hidden="true" />
-      <a className="grp-hero-back" href="/krolowa-karkonoszy/szklarska-poreba.html#grupy">Wróć do Grup</a>
+      <a className="grp-hero-back" href="/szklarska-poreba.html#grupy">Wróć do Grup</a>
       <div className="grp-hero-inner">
         <div className="grp-hero-eyebrow">GRUPY ZORGANIZOWANE · {GROUP_DATA.tag.toUpperCase()}</div>
         <h1>{h.h1pre} <em>{h.h1em}</em></h1>
@@ -548,7 +548,7 @@ function ContactCTA() {
             <p className="grp-cta-text">{c.text}</p>
             <div className="grp-cta-actions">
               <a className="grp-btn grp-btn-primary" href="mailto:krolowakarkonoszy@wp.pl">Napisz do nas</a>
-              <a className="grp-btn grp-btn-ghost" href="/krolowa-karkonoszy/szklarska-poreba.html">Zobacz całą stronę obiektu</a>
+              <a className="grp-btn grp-btn-ghost" href="/szklarska-poreba.html">Zobacz całą stronę obiektu</a>
             </div>
           </div>
           <div className="grp-cta-points">
@@ -603,10 +603,10 @@ function Footer() {
             </div>
           </div>
           <div className="footer-links">
-            <a href="/krolowa-karkonoszy/szklarska-poreba.html#o-nas">O NAS</a>
-            <a href="/krolowa-karkonoszy/szklarska-poreba.html#noclegi">NOCLEGI</a>
-            <a href="/krolowa-karkonoszy/szklarska-poreba.html#grupy">GRUPY</a>
-            <a href="/krolowa-karkonoszy/szklarska-poreba.html#galeria">GALERIA</a>
+            <a href="/szklarska-poreba.html#o-nas">O NAS</a>
+            <a href="/szklarska-poreba.html#noclegi">NOCLEGI</a>
+            <a href="/szklarska-poreba.html#grupy">GRUPY</a>
+            <a href="/szklarska-poreba.html#galeria">GALERIA</a>
             <a href="#">POLITYKA PRYWATNOŚCI</a>
             <a href="#">REGULAMIN</a>
           </div>
