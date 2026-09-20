@@ -2450,7 +2450,6 @@ const PH = ({ label = "ZDJĘCIE", icon = true }) => (
    Pass `links` as [{href, label}], `home` for the logo link target. */
 function Nav({ links, home = "/index.html" }) {
   const [scrolled, setScrolled] = __useState_shared(false);
-  const [lang, setLang] = __useState_shared("PL");
   const [hidden, setHidden] = __useState_shared(false);
   const [menuOpen, setMenuOpen] = __useState_shared(false);
   const defaultLinks = links || [
@@ -2505,16 +2504,6 @@ function Nav({ links, home = "/index.html" }) {
             ))}
           </nav>
           <div className="nav-right-group">
-            <nav className="nav-langs-inline" aria-label="Języki">
-              {["PL","EN","DE","CZ"].map(l => (
-                <button
-                  key={l}
-                  className={`nav-lang-inline ${l===lang?"active":""}`}
-                  onClick={() => setLang(l)}
-                  aria-pressed={l===lang}
-                >{l}</button>
-              ))}
-            </nav>
             <a className="nav-cta-outline" href="mailto:krolowakarkonoszy@wp.pl">Napisz do nas</a>
           </div>
           <button
@@ -2546,16 +2535,6 @@ function Nav({ links, home = "/index.html" }) {
           ))}
         </nav>
         <div className="nav-mobile-foot">
-          <nav className="nav-langs-inline" aria-label="Języki">
-            {["PL","EN","DE","CZ"].map(l => (
-              <button
-                key={l}
-                className={`nav-lang-inline ${l===lang?"active":""}`}
-                onClick={() => setLang(l)}
-                aria-pressed={l===lang}
-              >{l}</button>
-            ))}
-          </nav>
           <a className="nav-cta-outline" href="mailto:krolowakarkonoszy@wp.pl" onClick={closeMenu}>Napisz do nas</a>
         </div>
       </div>

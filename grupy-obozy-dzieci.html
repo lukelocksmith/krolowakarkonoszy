@@ -316,7 +316,6 @@ const GROUP_DATA = {
 /* ===== Nav (klon z głównej strony) ===== */
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [lang, setLang]         = useState("PL");
   const [menuOpen, setMenuOpen] = useState(false);
   const LINKS = [
     { href: "/szklarska-poreba.html#o-nas",   label: "O NAS" },
@@ -362,14 +361,6 @@ function Nav() {
             ))}
           </nav>
           <div className="nav-right-group">
-            <nav className="nav-langs-inline" aria-label="Języki">
-              {["PL","EN","DE","CZ"].map(l => (
-                <button key={l}
-                  className={`nav-lang-inline ${l===lang?"active":""}`}
-                  onClick={() => setLang(l)}
-                  aria-pressed={l===lang}>{l}</button>
-              ))}
-            </nav>
             <a className="nav-cta-outline" href="#cta">ZAPYTAJ O POBYT</a>
           </div>
           <button
@@ -401,14 +392,6 @@ function Nav() {
           ))}
         </nav>
         <div className="nav-mobile-foot">
-          <nav className="nav-langs-inline" aria-label="Języki">
-            {["PL","EN","DE","CZ"].map(l => (
-              <button key={l}
-                className={`nav-lang-inline ${l===lang?"active":""}`}
-                onClick={() => setLang(l)}
-                aria-pressed={l===lang}>{l}</button>
-            ))}
-          </nav>
           <a className="nav-cta-outline" href="#cta" onClick={closeMenu}>ZAPYTAJ O POBYT</a>
         </div>
       </div>
